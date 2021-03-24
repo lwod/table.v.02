@@ -4,7 +4,7 @@ const port = process.env.PORT || 5000;
 
 app.get("/", async (req,res)=>{
 	res.json({
-		key:'value'
+		key:'value - 2'
 	})
 })
 
