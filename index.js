@@ -8,12 +8,12 @@ app.use(cors());
 const characters = [
 	{
 		name:'carter',
-		coords : {lat: 0, lng : 0,},
+		coords : {lat: 42.35, lng : -71.05,},
 		
 	},
 	{
 		name:'gary',
-		coords : {lat: 0, lng : 0,},
+		coords : {lat: 42.15, lng : -71.05,},
 		
 	},
 ]
@@ -42,7 +42,7 @@ app.post("/table", async (req,res)=>{
 	
 	console.log(coords)
 	
-	res.json({status:200});
+	res.json(characters);
 })
 
 

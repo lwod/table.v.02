@@ -12,6 +12,8 @@
 <script>
 	function initMap (){
 
+		const markerChars = [];
+
 		const options = {
 			zoom : 8,
 			center: {
@@ -51,8 +53,25 @@
 				body: JSON.stringify({coords: coords, ind:ind})
 			});
 
-			const answer = await response.json()
-            console.log(answer);
+			const characters = await response.json()
+            console.log(characters);
+
+			for(i = 0; i < markerChars.length; i++)
+			{
+				markerChars[i].setMap(null);
+			}
+
+
+			for(i = 0; i < characters.length; i++)
+			{
+				let marker = new google.maps.Marker({
+					position : characters[i].coords,
+					map : map
+				});
+
+				markerChars.push(marker)
+			}
+
 		}
 
 
