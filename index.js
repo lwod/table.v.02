@@ -19,7 +19,9 @@ app.get('/table', async (req,res)=>{
 
 app.post("/table", async (req,res)=>{
 	
-	const {character} = req.body;
+	const {coords} = req.body;
+	
+	console.log(coords)
 	
 })
 
