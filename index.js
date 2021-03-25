@@ -5,6 +5,19 @@ const port = process.env.PORT || 5000;
 const cors = require('cors');
 app.use(cors());
 
+const characters = [
+	{
+		name:'carter',
+		coords : {lat: 0, lng : 0,},
+		
+	},
+	{
+		name:'gary',
+		coords : {lat: 0, lng : 0,},
+		
+	},
+]
+
 app.use(express.json({extended:true}))
 
 app.get("/", async (req,res)=>{
@@ -20,6 +33,15 @@ app.get('/table', async (req,res)=>{
 app.post("/table", async (req,res)=>{
 	
 	const {coords} = req.body;
+	const {name} = req.body;
+	
+	const characterIndex = characters.findIndex((character) => {
+		character.name === name;
+	})
+	
+	characters[characterIndex].coords = coords;
+	
+	console.log(characters)
 	
 	console.log(coords)
 	
