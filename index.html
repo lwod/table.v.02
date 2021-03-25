@@ -6,13 +6,17 @@
 
 </style>
 <body>
+
+<div>some str 8</div>
+
 <div id="map"></div>
 
 <div id="title"></div>
-</body>
 
 <script>
 	function initMap (){
+
+
 		const options = {
 			zoom : 8,
 			center: {
@@ -22,19 +26,39 @@
 		}
 
 		let map = new google.maps.Map(document.getElementById('map'),options);
+		// https://simg.nicepng.com/png/small/440-4409287_heres-a-little-more-info-about-what-makes.png
 
-		google.maps.event.addListener(map, 'click', async ()=>{
+		google.maps.event.addListener(map, 'click', async function (event){
 			addMarker({
-                coords:event.latLng
-            })
-        });
+				coords:event.latLng
+			});
+			console.log(event.latLng.lat());
+			console.log(event.latLng.lng());
 
-		const addMarker = (props)=>{
-			const marker = new google.maps.Marker({
-                position:props.coords,
-                map:map,
-            });
-        }
+///////////////
+// 			let response = await fetch("https://lwod.herokuapp.com/test", {
+// 				method: 'POST',
+// 				headers: {'Content-Type': 'application/json;charset=utf-8'},
+// 				body: JSON.stringify({lat: event.latLng.lat(), lng: event.latLng.lng()})
+// 			});
+
+
+//     const result = await response.json();
+
+// 		console.log(result);
+			/////////////////////////////
+			console.log('-- --');
+		});
+
+
+		function addMarker (props){
+			let marker = new google.maps.Marker({
+				position: props.coords,
+				map:map,
+			})
+		}
+
+
 
 	}
 </script>
@@ -42,5 +66,8 @@
 
 <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdDXrVbMRNQ67za2Ci2P_MYDX1OCy7LXE&callback=initMap&language=en">
-
 </script>
+
+
+
+</body>
