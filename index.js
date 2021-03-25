@@ -8,4 +8,8 @@ app.get("/", async (req,res)=>{
 	})
 })
 
+app.get('/table', async (req,res)=>{
+	res.sendFile(`${__dirname}/index.html`)
+})
+
 app.listen(port);
