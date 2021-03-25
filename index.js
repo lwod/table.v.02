@@ -33,13 +33,10 @@ app.get('/table', async (req,res)=>{
 app.post("/table", async (req,res)=>{
 	
 	const {coords} = req.body;
-	const {name} = req.body;
+	const {ind} = req.body;
 	
-	const characterIndex = characters.findIndex((character) => {
-		character.name === name;
-	})
 	
-	characters[characterIndex].coords = coords;
+	characters[ind].coords = coords;
 	
 	console.log(characters)
 	

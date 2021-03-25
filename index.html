@@ -31,7 +31,7 @@
 
 		});
 
-		const name = 'carter';
+		const ind = 0;
 
 		const moveMarker = async (props)=>{
 			let marker = new google.maps.Marker({
@@ -48,7 +48,7 @@
 				method: 'POST',
 				headers: {'Content-Type': 'application/json;charset=utf-8'},
 				// body: JSON.stringify({lat: event.latLng.lat(), lng: event.latLng.lng()})
-				body: JSON.stringify({coords: coords, name : name})
+				body: JSON.stringify({coords: coords, ind:ind})
 			});
 		}
 
