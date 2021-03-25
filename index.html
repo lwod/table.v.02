@@ -16,7 +16,6 @@
 <script>
 	function initMap (){
 
-
 		const options = {
 			zoom : 8,
 			center: {
@@ -26,32 +25,19 @@
 		}
 
 		let map = new google.maps.Map(document.getElementById('map'),options);
-		// https://simg.nicepng.com/png/small/440-4409287_heres-a-little-more-info-about-what-makes.png
 
-		google.maps.event.addListener(map, 'click', async function (event){
+		google.maps.event.addListener(map, 'click', async (event)=>{
 			addMarker({
 				coords:event.latLng
 			});
 			console.log(event.latLng.lat());
 			console.log(event.latLng.lng());
 
-///////////////
-// 			let response = await fetch("https://lwod.herokuapp.com/test", {
-// 				method: 'POST',
-// 				headers: {'Content-Type': 'application/json;charset=utf-8'},
-// 				body: JSON.stringify({lat: event.latLng.lat(), lng: event.latLng.lng()})
-// 			});
-
-
-//     const result = await response.json();
-
-// 		console.log(result);
-			/////////////////////////////
-			console.log('-- --');
+			console.log('-- -- 2');
 		});
 
 
-		function addMarker (props){
+		const addMarker = (props)=>{
 			let marker = new google.maps.Marker({
 				position: props.coords,
 				map:map,
