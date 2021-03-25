@@ -50,6 +50,9 @@
 				// body: JSON.stringify({lat: event.latLng.lat(), lng: event.latLng.lng()})
 				body: JSON.stringify({coords: coords, ind:ind})
 			});
+
+			const answer = await response.json()
+            console.log(answer);
 		}
 
 

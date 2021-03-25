@@ -42,6 +42,7 @@ app.post("/table", async (req,res)=>{
 	
 	console.log(coords)
 	
+	res.json({status:200});
 })
 
 
