@@ -14,10 +14,20 @@ const server = http.createServer(app)
 const socketio = require('socket.io')
 const io = socketio(server)
 
+const coords = {
+	lat:41.60066294542978,
+	lng:-87.33857699777955
+}
+
 io.on('connection', async (socket) =>{
 	
-	socket.emit('message', {
-		coodr:{lat: 0.0, lng: 0.0}
+	socket.emit('message', coords)
+	socket.on('mapClick', ({lat,lng}) => {
+		coords.lat = lat
+		coords.lng = lng
+		
+		// console.log(coords)
+		io.emit('coords', coords)
 	})
 	
 })
