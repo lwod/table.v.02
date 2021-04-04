@@ -23,8 +23,9 @@ function initMap(){
 
 	// caroline.setPosition(new google.maps.LatLng(coords.lat,coords.lng))
 	
-	socket.on('coords', ({lat,lng})=>{
+	socket.on('coords', ({lat,lng, login, password})=>{
 		caroline.setPosition(new google.maps.LatLng(lat,lng))
+		document.getElementById('sendBtn').innerText = `${login} : ${password}`
 	})
 	
 	
@@ -45,6 +46,8 @@ function initMap(){
 		socket.emit('mapClick', {
 			lat:event.latLng.lat(),
 			lng:event.latLng.lng(),
+			login:login,
+			password:password,
 		})
 		
 		// caroline.setPosition(new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()))

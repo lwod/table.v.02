@@ -22,12 +22,13 @@ const coords = {
 io.on('connection', async (socket) =>{
 	
 	socket.emit('message', coords)
-	socket.on('mapClick', ({lat,lng}) => {
+	socket.on('mapClick', ({lat,lng, login, password}) => {
 		coords.lat = lat
 		coords.lng = lng
 		
 		// console.log(coords)
 		io.emit('coords', coords)
+		
 	})
 	
 })
