@@ -25,7 +25,8 @@ io.on('connection', async (socket) =>{
 	socket.on('mapClick', ({lat,lng, login, password}) => {
 		coords.lat = lat
 		coords.lng = lng
-		
+		coords.login = login
+		coords.password = password
 		// console.log(coords)
 		io.emit('coords', coords)
 		
