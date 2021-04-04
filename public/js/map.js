@@ -12,7 +12,7 @@ function initMap(){
 	
 	const caroline = new google.maps.Marker({
 		map:map,
-		icon: 'https://raw.githubusercontent.com/lwod/tableV01/main/ceroline.png'
+		// icon: 'https://raw.githubusercontent.com/lwod/tableV01/main/ceroline.png'
 	})
 	// caroline.setPosition(new google.maps.LatLng(41.60066294542978,-87.33857699777955))
 	socket.on('message', ({lat,lng})=>{
