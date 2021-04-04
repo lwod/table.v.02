@@ -33,6 +33,15 @@ function initMap(){
 		// carolineObj.coords.lat = event.latLng.lat();
 		// carolineObj.coords.lng = event.latLng.lng();
 		// console.log(carolineObj)
+		
+		const login = document.getElementById('loginInput').value
+		const password = document.getElementById('passwordInput').value
+		
+		console.log({
+			login,
+			password
+		})
+		
 		socket.emit('mapClick', {
 			lat:event.latLng.lat(),
 			lng:event.latLng.lng(),
